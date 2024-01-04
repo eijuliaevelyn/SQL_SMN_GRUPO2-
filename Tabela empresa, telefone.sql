@@ -1,0 +1,17 @@
+CREATE TABLE TelefoneFixo(
+		Id SMALLINT PRIMARY KEY IDENTITY,
+		DDD SMALLINT NOT NULL,
+		Numero INT NOT NULL
+);
+
+CREATE TABLE Empresa(
+		Id SMALLINT PRIMARY KEY IDENTITY,
+		IdTelefoneFixo SMALLINT,
+		NomeFantasia VARCHAR (80) NOT NULL,
+		RazaoSocial VARCHAR (80) NOT NULL,
+		CNPJ BIGINT NOT NULL,
+		InscriacaoEstadual INT,
+		InscricaoMunicipal BIGINT NOT NULL,
+		Email VARCHAR (150) NOT NULL,
+		FOREIGN KEY (IdTelefoneFixo) REFERENCES TelefoneFixo (Id)
+);
